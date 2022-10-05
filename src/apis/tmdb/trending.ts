@@ -30,10 +30,8 @@ export const getTrending = (): Promise<Trending> =>
     )
   )
     .then((res) => {
-      console.log(res);
       return res.json();
     })
     .then((res) => {
-      console.log(res);
       return res.results;
     });

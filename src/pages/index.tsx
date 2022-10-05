@@ -1,8 +1,28 @@
+import {
+  Discover,
+  getActionMovies,
+  getComedyMovies,
+  getDocumentaries,
+  getHorrorMovies,
+  getRomanceMovies,
+} from "@/apis/tmdb/discover";
+import { getTopRated, Movie } from "@/apis/tmdb/movie";
+import { getTrending, Trending } from "@/apis/tmdb/trending";
 import Header from "@/components/Header";
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 
-const Home: NextPage = () => {
+export interface HomePageProps {
+  trending: Trending[];
+  topRated: Movie[];
+  actionMovies: Discover[];
+  comedyMovies: Discover[];
+  horrorMovies: Discover[];
+  romanceMovies: Discover[];
+  documentaries: Discover[];
+}
+
+const Home: NextPage<HomePageProps> = () => {
   return (
     <div className="h-screen relative">
       <Head>
@@ -25,6 +45,38 @@ const Home: NextPage = () => {
       {/* Modal */}
     </div>
   );
+};
+
+export const getStaticProps = async () => {
+  const [
+    trending,
+    topRated,
+    actionMovies,
+    comedyMovies,
+    horrorMovies,
+    romanceMovies,
+    documentaries,
+  ] = await Promise.all([
+    getTrending(),
+    getTopRated(),
+    getActionMovies(),
+    getComedyMovies(),
+    getHorrorMovies(),
+    getRomanceMovies(),
+    getDocumentaries(),
+  ]);
+
+  return {
+    props: {
+      trending,
+      topRated,
+      actionMovies,
+      comedyMovies,
+      horrorMovies,
+      romanceMovies,
+      documentaries,
+    },
+  };
 };
 
 export default Home;
