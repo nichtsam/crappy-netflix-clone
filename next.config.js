@@ -4,4 +4,7 @@ module.exports = {
   images: {
     domains: ["upload.wikimedia.org"],
   },
+  experimental: {
+    newNextLinkBehavior: true,
+  },
 };

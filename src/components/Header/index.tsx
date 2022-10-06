@@ -31,10 +31,8 @@ function Header() {
       })}
     >
       <div className="flex h-full items-center space-x-2 lg:space-x-10">
-        <Link href="/">
-          <a className="inline-block h-5 w-24 md:h-7">
-            <Logo />
-          </a>
+        <Link href="/" className="inline-block h-5 w-24 md:h-7">
+          <Logo />
         </Link>
 
         <NavMenu />
