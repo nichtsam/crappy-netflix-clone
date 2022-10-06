@@ -23,6 +23,7 @@ function UserMenu() {
       <li className="text-[0px]">
         <Link href="/account">
           <Image
+            alt="user-avatar"
             height={32}
             width={32}
             className="rounded cursor-pointer"
