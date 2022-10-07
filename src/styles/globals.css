@@ -13,7 +13,7 @@
 
 @layer components {
   .headerNav {
-    @apply text-xs lg:text-sm text-gray-200 hover:text-gray-600 transition duration-300;
+    @apply text-xs lg:text-sm text-gray-200 hover:text-gray-400 transition duration-300;
   }
   .bannerContainer {
     @apply h-[56.25vw] w-full absolute;
