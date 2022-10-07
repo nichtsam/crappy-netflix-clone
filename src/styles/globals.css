@@ -4,7 +4,7 @@
 
 @layer base {
   header {
-    @apply fixed top-0 z-50 w-full flex h-10 md:h-16 items-center px-[4%] bg-gradient-to-b from-black;
+    @apply fixed top-0 z-50 w-full flex transition duration-500 h-10 md:h-16 items-center px-[4%] bg-gradient-to-b from-black;
   }
   body {
     @apply bg-black text-white;
