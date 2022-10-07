@@ -15,7 +15,7 @@ function ForegroundText({
         <h1 className="text-[2vw] text-shadow">{title}</h1>
         <p className="text-[1.2vw] text-shadow">{overview}</p>
       </div>
-      <div className="absolute top-0 bottom-0 left-0 right-1/4 bg-gradient-to-r from-black/60 to-transparent" />
+      <div className="-z-10 absolute top-0 bottom-0 left-0 right-1/4 bg-gradient-to-r from-black/60 to-transparent" />
     </div>
   );
 }

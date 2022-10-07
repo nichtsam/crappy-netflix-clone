@@ -7,7 +7,7 @@ interface BackgroundImageProps {
 
 function BackgroundImage({ src }: BackgroundImageProps) {
   return (
-    <div className="absolute-full">
+    <div className="absolute-full -z-10">
       <Image alt="banner-image" src={src} layout="fill" objectFit="cover" />
     </div>
   );
