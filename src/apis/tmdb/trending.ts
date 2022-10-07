@@ -1,5 +1,7 @@
 import { Nullish, Optional } from "@/types/utils";
-import { TMDB_BASE_URL, TMDB_API_KEY } from "./constant";
+import { TMDB_API_KEY, axios_tmdb } from "./constant";
+
+type TrendingResponse = { results: Trending[] };
 
 export type Trending = {
   id: Optional<number>;
@@ -22,16 +24,9 @@ export type Trending = {
   poster_path: Nullish<string>;
 };
 
-export const getTrending = (): Promise<Trending> =>
-  fetch(
-    new URL(
-      `3/trending/all/week?api_key=${TMDB_API_KEY}&language=en-US`,
-      TMDB_BASE_URL
+export const getTrending = async () =>
+  (
+    await axios_tmdb.get<TrendingResponse>(
+      `trending/all/week?api_key=${TMDB_API_KEY}&language=en-US`
     )
-  )
-    .then((res) => {
-      return res.json();
-    })
-    .then((res) => {
-      return res.results;
-    });
+  ).data.results;

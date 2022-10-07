@@ -1,5 +1,7 @@
 import { Nullish, Optional } from "@/types/utils";
-import { TMDB_BASE_URL, TMDB_API_KEY } from "./constant";
+import { TMDB_API_KEY, axios_tmdb } from "./constant";
+
+type DiscoverResponse = { results: Discover[] };
 
 export type Discover = {
   id: Optional<number>;
@@ -18,62 +20,44 @@ export type Discover = {
   poster_path: Nullish<string>;
 };
 
-export const getNetflixOriginals = (): Promise<Discover> =>
-  fetch(
-    new URL(
-      `3/discover/tv?api_key=${TMDB_API_KEY}&language=en-US&with_networks=213`,
-      TMDB_BASE_URL
+export const getNetflixOriginals = async () =>
+  (
+    await axios_tmdb.get<DiscoverResponse>(
+      `discover/tv?api_key=${TMDB_API_KEY}&language=en-US&with_networks=213`
     )
-  )
-    .then((res) => res.json())
-    .then((res) => res.results);
+  ).data.results;
 
-export const getActionMovies = (): Promise<Discover> =>
-  fetch(
-    new URL(
-      `3/discover/movie?api_key=${TMDB_API_KEY}&language=en-US&with_genres=28`,
-      TMDB_BASE_URL
+export const getActionMovies = async () =>
+  (
+    await axios_tmdb.get<DiscoverResponse>(
+      `discover/movie?api_key=${TMDB_API_KEY}&language=en-US&with_genres=28`
     )
-  )
-    .then((res) => res.json())
-    .then((res) => res.results);
+  ).data.results;
 
-export const getComedyMovies = (): Promise<Discover> =>
-  fetch(
-    new URL(
-      `3/discover/movie?api_key=${TMDB_API_KEY}&language=en-US&with_genres=35`,
-      TMDB_BASE_URL
+export const getComedyMovies = async () =>
+  (
+    await axios_tmdb.get<DiscoverResponse>(
+      `discover/movie?api_key=${TMDB_API_KEY}&language=en-US&with_genres=35`
     )
-  )
-    .then((res) => res.json())
-    .then((res) => res.results);
+  ).data.results;
 
-export const getHorrorMovies = (): Promise<Discover> =>
-  fetch(
-    new URL(
-      `3/discover/movie?api_key=${TMDB_API_KEY}&language=en-US&with_genres=27`,
-      TMDB_BASE_URL
+export const getHorrorMovies = async () =>
+  (
+    await axios_tmdb.get<DiscoverResponse>(
+      `discover/movie?api_key=${TMDB_API_KEY}&language=en-US&with_genres=27`
     )
-  )
-    .then((res) => res.json())
-    .then((res) => res.results);
+  ).data.results;
 
-export const getRomanceMovies = (): Promise<Discover> =>
-  fetch(
-    new URL(
-      `3/discover/movie?api_key=${TMDB_API_KEY}&language=en-US&with_genres=10749`,
-      TMDB_BASE_URL
+export const getRomanceMovies = async () =>
+  (
+    await axios_tmdb.get<DiscoverResponse>(
+      `discover/movie?api_key=${TMDB_API_KEY}&language=en-US&with_genres=10749`
     )
-  )
-    .then((res) => res.json())
-    .then((res) => res.results);
+  ).data.results;
 
-export const getDocumentaries = (): Promise<Discover> =>
-  fetch(
-    new URL(
-      `3/discover/movie?api_key=${TMDB_API_KEY}&language=en-US&with_genres=99`,
-      TMDB_BASE_URL
+export const getDocumentaries = async () =>
+  (
+    await axios_tmdb.get<DiscoverResponse>(
+      `discover/movie?api_key=${TMDB_API_KEY}&language=en-US&with_genres=99`
     )
-  )
-    .then((res) => res.json())
-    .then((res) => res.results);
+  ).data.results;

@@ -1,5 +1,7 @@
 import { Nullish, Optional } from "@/types/utils";
-import { TMDB_BASE_URL, TMDB_API_KEY } from "./constant";
+import { TMDB_API_KEY, axios_tmdb } from "./constant";
+
+type MovieResponse = { results: Movie[] };
 
 export type Movie = {
   id: Optional<number>;
@@ -18,12 +20,9 @@ export type Movie = {
   poster_path: Nullish<string>;
 };
 
-export const getTopRated = (): Promise<Movie> =>
-  fetch(
-    new URL(
-      `3/movie/top_rated?api_key=${TMDB_API_KEY}&language=en-US`,
-      TMDB_BASE_URL
+export const getTopRated = async () =>
+  (
+    await axios_tmdb.get<MovieResponse>(
+      `movie/top_rated?api_key=${TMDB_API_KEY}&language=en-US`
     )
-  )
-    .then((res) => res.json())
-    .then((res) => res.results);
+  ).data.results;
