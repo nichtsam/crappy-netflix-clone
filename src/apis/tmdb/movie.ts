@@ -5,6 +5,7 @@ type MovieResponse = { results: Movie[] };
 
 export type Movie = {
   id: Optional<number>;
+  name: Optional<string>;
   title: Optional<string>;
   overview: Optional<string>;
   video: Optional<boolean>;

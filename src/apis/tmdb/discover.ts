@@ -5,6 +5,7 @@ type DiscoverResponse = { results: Discover[] };
 
 export type Discover = {
   id: Optional<number>;
+  name: Optional<string>;
   title: Optional<string>;
   overview: Optional<string>;
   video: Optional<boolean>;

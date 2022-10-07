@@ -5,8 +5,8 @@ type TrendingResponse = { results: Trending[] };
 
 export type Trending = {
   id: Optional<number>;
-  title: Optional<string>;
   name: Optional<string>;
+  title: Optional<string>;
   overview: Optional<string>;
   video: Optional<boolean>;
   adult: Optional<boolean>;
