@@ -9,10 +9,10 @@ import {
 import { getTopRated, Movie } from "@/apis/tmdb/movie";
 import { getTrending, Trending } from "@/apis/tmdb/trending";
 import Header from "@/components/Header";
-import type { GetStaticProps, NextPage } from "next";
+import type { NextPage } from "next";
 import Head from "next/head";
 
-export interface HomePageProps {
+interface Props {
   trending: Trending[];
   topRated: Movie[];
   actionMovies: Discover[];
@@ -22,7 +22,7 @@ export interface HomePageProps {
   documentaries: Discover[];
 }
 
-const Home: NextPage<HomePageProps> = () => {
+const Home: NextPage<Props> = () => {
   return (
     <div className="h-screen relative">
       <Head>
