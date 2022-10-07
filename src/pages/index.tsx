@@ -4,15 +4,18 @@ import {
   getComedyMovies,
   getDocumentaries,
   getHorrorMovies,
+  getNetflixOriginals,
   getRomanceMovies,
 } from "@/apis/tmdb/discover";
 import { getTopRated, Movie } from "@/apis/tmdb/movie";
 import { getTrending, Trending } from "@/apis/tmdb/trending";
+import Banner from "@/components/Banner";
 import Header from "@/components/Header";
 import type { NextPage } from "next";
 import Head from "next/head";
 
 interface Props {
+  netflixOriginals: Discover[];
   trending: Trending[];
   topRated: Movie[];
   actionMovies: Discover[];
@@ -22,7 +25,7 @@ interface Props {
   documentaries: Discover[];
 }
 
-const Home: NextPage<Props> = () => {
+const Home: NextPage<Props> = ({ netflixOriginals }) => {
   return (
     <div className="h-screen relative">
       <Head>
@@ -31,7 +34,7 @@ const Home: NextPage<Props> = () => {
       </Head>
       <Header />
       <main>
-        {/* Banner */}
+        <Banner series={netflixOriginals} />
         <section>
           {/* Row */}
           {/* Row */}
@@ -49,6 +52,7 @@ const Home: NextPage<Props> = () => {
 
 export const getStaticProps = async () => {
   const [
+    netflixOriginals,
     trending,
     topRated,
     actionMovies,
@@ -57,6 +61,7 @@ export const getStaticProps = async () => {
     romanceMovies,
     documentaries,
   ] = await Promise.all([
+    getNetflixOriginals(),
     getTrending(),
     getTopRated(),
     getActionMovies(),
@@ -68,6 +73,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
+      netflixOriginals,
       trending,
       topRated,
       actionMovies,

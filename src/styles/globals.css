@@ -15,9 +15,19 @@
   .headerNav {
     @apply text-xs lg:text-sm text-gray-200 hover:text-gray-600 transition duration-300;
   }
+  .bannerContainer {
+    @apply h-[56.25vw] w-full absolute;
+  }
+  .bannerTextContainer {
+    @apply z-10 absolute top-0 bottom-1/3 left-[5%] w-2/3 md:w-1/3 flex flex-col justify-end gap-[1.2vw];
+  }
 }
 
 @layer utilities {
+  .absolute-full {
+    @apply absolute top-0 bottom-0 left-0 right-0;
+  }
+
   .text-shadow {
     text-shadow: 2px 2px 4px black;
   }
