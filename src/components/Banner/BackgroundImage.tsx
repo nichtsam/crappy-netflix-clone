@@ -15,6 +15,8 @@ function BackgroundImage({ src }: BackgroundImageProps) {
         layout="fill"
         objectFit="cover"
       />
+
+      <div className="w-full h-[14.7vw] absolute bottom-0 bg-gradient-to-t from-black" />
     </div>
   );
 }
