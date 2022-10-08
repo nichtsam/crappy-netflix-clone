@@ -9,7 +9,7 @@ export interface BannerProps {
 }
 
 function Banner({ series }: BannerProps) {
-  const movie = series[2]; // TODO: make this change every hour.
+  const movie = series[0]; // TODO: make this change every hour.
   const { title, name, original_title, overview, backdrop_path, poster_path } =
     movie;
 
