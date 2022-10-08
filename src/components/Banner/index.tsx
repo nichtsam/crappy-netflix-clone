@@ -9,7 +9,7 @@ export interface BannerProps {
 }
 
 function Banner({ series }: BannerProps) {
-  const movie = series[0]; // TODO: make this change every hour.
+  const movie = series[2]; // TODO: make this change every hour.
   const { title, name, original_title, overview, backdrop_path, poster_path } =
     movie;
 
@@ -19,9 +19,12 @@ function Banner({ series }: BannerProps) {
   }`;
 
   return (
-    <div className="bannerContainer">
-      <BackgroundImage src={backgroundImageSrc} />
-      <ForegroundText title={bannerTitle} overview={overview} />
+    <div className="-mt-16 hidden sm:block">
+      <div className="bannerContainer">
+        <BackgroundImage src={backgroundImageSrc} />
+        <ForegroundText title={bannerTitle} overview={overview} />
+      </div>
+      <div className="pb-[40%] mb-5" />
     </div>
   );
 }
