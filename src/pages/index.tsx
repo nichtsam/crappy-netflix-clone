@@ -11,7 +11,7 @@ import { getTopRated, Movie } from "@/apis/tmdb/movie";
 import { getTrending, Trending } from "@/apis/tmdb/trending";
 import Banner from "@/components/Banner";
 import Header from "@/components/Header";
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 
 interface Props {
@@ -50,7 +50,7 @@ const Home: NextPage<Props> = ({ netflixOriginals }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const [
     netflixOriginals,
     trending,
@@ -82,6 +82,7 @@ export const getStaticProps = async () => {
       romanceMovies,
       documentaries,
     },
+    revalidate: 60 * 60, // seconds
   };
 };
 
