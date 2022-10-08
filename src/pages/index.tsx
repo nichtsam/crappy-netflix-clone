@@ -11,6 +11,7 @@ import { getTopRated, Movie } from "@/apis/tmdb/movie";
 import { getTrending, Trending } from "@/apis/tmdb/trending";
 import Banner from "@/components/Banner";
 import Header from "@/components/Header";
+import Series from "@/components/Series";
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 
@@ -25,7 +26,16 @@ interface Props {
   documentaries: Discover[];
 }
 
-const Home: NextPage<Props> = ({ netflixOriginals }) => {
+const Home: NextPage<Props> = ({
+  netflixOriginals,
+  trending,
+  topRated,
+  actionMovies,
+  comedyMovies,
+  horrorMovies,
+  romanceMovies,
+  documentaries,
+}) => {
   return (
     <div className="h-screen relative">
       <Head>
@@ -36,12 +46,13 @@ const Home: NextPage<Props> = ({ netflixOriginals }) => {
       <main>
         <Banner series={netflixOriginals} />
         <section>
-          {/* Row */}
-          {/* Row */}
-          {/* Row */}
-          {/* Row */}
-          {/* Row */}
-          {/* Row */}
+          <Series title="Trending" series={trending} />
+          <Series title="TopRated" series={topRated} />
+          <Series title="ActionMovies" series={actionMovies} />
+          <Series title="ComedyMovies" series={comedyMovies} />
+          <Series title="HorrorMovies" series={horrorMovies} />
+          <Series title="RomanceMovies" series={romanceMovies} />
+          <Series title="Documentaries" series={documentaries} />
         </section>
       </main>
       {/* Footer */}
