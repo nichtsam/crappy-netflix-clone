@@ -45,7 +45,7 @@ const Home: NextPage<Props> = ({
       <Header />
       <main>
         <Banner series={netflixOriginals} />
-        <section>
+        <section className="pb-12">
           <Series title="Trending" series={trending} />
           <Series title="TopRated" series={topRated} />
           <Series title="ActionMovies" series={actionMovies} />
