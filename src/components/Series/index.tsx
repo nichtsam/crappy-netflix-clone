@@ -47,7 +47,7 @@ function Series({ title, series }: SeriesProps) {
   };
 
   return (
-    <div className="px-[4%] my-[3vw] overflow-hidden">
+    <div className="px-[4%] my-[3vw]">
       <h2 className="mb-2 text-xs md:text-[1.4vw] font-semibold text-neutral-400 sm:text-white">
         {title}
       </h2>
