@@ -40,7 +40,6 @@ const Home: NextPage<Props> = ({
     <div className="h-screen relative">
       <Head>
         <title>Home - Netflix</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
       <main>
