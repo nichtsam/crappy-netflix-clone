@@ -9,9 +9,9 @@ import {
 } from "@/apis/tmdb/discover";
 import { getTopRated, Movie } from "@/apis/tmdb/movie";
 import { getTrending, Trending } from "@/apis/tmdb/trending";
-import Banner from "@/components/Banner";
-import Header from "@/components/Header";
-import Series from "@/components/Series";
+import Header from "@/components/layout/Header";
+import Banner from "@/components/pages/browse/Banner";
+import Series from "@/components/pages/browse/Series";
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 
