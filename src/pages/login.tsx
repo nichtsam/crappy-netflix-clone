@@ -50,7 +50,7 @@ const Login: NextPage = () => {
       </header>
 
       <div className="px-[5%] md:px-0 bg-black/75 md:mx-auto md:max-w-md">
-        <div className="md:p-14 min-h-[550px] flex flex-col">
+        <div className="md:p-14 min-h-[440px] md:min-h-[550px] flex flex-col">
           <h1 className="mb-7 text-3xl">Sign In</h1>
 
           <form className="flex-1" onSubmit={handleSubmit(onSubmit)}>
