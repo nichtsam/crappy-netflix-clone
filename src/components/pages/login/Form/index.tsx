@@ -32,7 +32,7 @@ export const Form = () => {
   const onSubmit: SubmitHandler<LoginInput> = (data) => console.log(data);
 
   return (
-    <div className="flex flex-col">
+    <div className="h-full w-full flex flex-col">
       <h1 className="mb-7 text-3xl">Sign In</h1>
 
       <form className="flex-1" onSubmit={handleSubmit(onSubmit)}>

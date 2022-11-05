@@ -26,7 +26,7 @@ const Login: NextPage = () => {
       </header>
 
       <div className="px-[5%] md:px-0 bg-black/75 md:mx-auto md:max-w-md">
-        <div className="md:p-14 min-h-[440px] md:min-h-[550px]">
+        <div className="md:p-14 h-[440px] md:h-[550px]">
           <Form />
         </div>
       </div>
